@@ -1,0 +1,47 @@
+﻿@inherits LayoutComponentBase
+@using System.Reflection
+@using TABS.Blazor.Pages.ForTestPages
+@using Volo.Abp.AspNetCore.Components.Web.LeptonXTheme.Components.ApplicationLayout.Common
+@using Volo.Abp.AspNetCore.Components.Web.LeptonXTheme.Components.ApplicationLayout.SideMenu.MainHeader
+@using Volo.Abp.AspNetCore.Components.Web.LeptonXTheme.Components.ApplicationLayout.SideMenu.Navigation
+@using Volo.Abp.Ui.Branding
+@using Volo.Abp.BlazoriseUI.Components
+@using Volo.Abp.AspNetCore.Components.Web.Theming.Components
+@using TABS.Blazor.Pages
+@using BootstrapBlazor.Components
+
+@inject IBrandingProvider BrandingProvider
+
+<div class="lpx-scroll-container ps">
+	<div id="lpx-wrapper">
+		<MainHeader />
+		<div class="lpx-content-container">
+			<div class="lpx-topbar-container">
+				<div class="lpx-topbar">
+					@*<Breadcrumbs />*@
+				</div>
+			</div>
+			<div class="lpx-content-wrapper">
+				<div class="lpx-content">
+					<ContentToolbar/>
+					@*<PageAlert />*@
+				<BootstrapBlazor.Components.Tab ClickTabToNavigation="true"  ShowExtendButtons="true"  ShowClose="true" OnClickTabItemAsync="OnClickTabItemAsync" AdditionalAssemblies="@otherAssemblys"
+                 Body="@Body">
+				</BootstrapBlazor.Components.Tab>
+					<DynamicLayoutComponent />
+					<UiMessageAlert />
+					<UiNotificationAlert />
+				</div>
+			</div>
+		</div>
+
+		<MobileNavbar />
+
+		<div class="lpx-toolbar-container">
+			<MainHeaderToolbar />
+		</div>
+	</div>
+</div>
+@code {
+
+}
